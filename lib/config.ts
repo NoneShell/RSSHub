@@ -11,6 +11,9 @@ type ConfigEnvKeys =
     | 'PLAYWRIGHT_WS_ENDPOINT'
     | 'PUPPETEER_WS_ENDPOINT'
     | 'PLAYWRIGHT_CDP_ENDPOINT'
+    | 'SHARED_CHROME_CDP_ENDPOINT'
+    | 'SHARED_CHROME_TEST_URL'
+    | 'SHARED_CHROME_TEST_PUBLIC_URL'
     | 'CHROMIUM_EXECUTABLE_PATH'
     // Network
     | 'PORT'
@@ -272,6 +275,9 @@ export type Config = {
     nodeName?: string;
     playwrightWSEndpoint?: string;
     playwrightCDPEndpoint?: string;
+    sharedChromeCDPEndpoint?: string;
+    sharedChromeTestUrl?: string;
+    sharedChromeTestPublicUrl?: string;
     chromiumExecutablePath?: string;
     // network
     connect: {
@@ -801,6 +807,9 @@ const calculateValue = () => {
         nodeName: envs.NODE_NAME,
         playwrightWSEndpoint: envs.PLAYWRIGHT_WS_ENDPOINT ?? envs.PUPPETEER_WS_ENDPOINT,
         playwrightCDPEndpoint: envs.PLAYWRIGHT_CDP_ENDPOINT,
+        sharedChromeCDPEndpoint: envs.SHARED_CHROME_CDP_ENDPOINT,
+        sharedChromeTestUrl: envs.SHARED_CHROME_TEST_URL,
+        sharedChromeTestPublicUrl: envs.SHARED_CHROME_TEST_PUBLIC_URL,
         chromiumExecutablePath: envs.CHROMIUM_EXECUTABLE_PATH,
         // network
         connect: {
